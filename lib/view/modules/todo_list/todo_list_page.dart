@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:logger/logger.dart';
+import 'package:todolist/model/repository/todo_repository.dart';
 import 'package:todolist/viewmodel/todo_viewmodel.dart';
 
 class TodoListPage extends GetView<TodoViewmodel> {
@@ -9,6 +10,7 @@ class TodoListPage extends GetView<TodoViewmodel> {
   @override
   Widget build(BuildContext context) {
     final viewmodel = Get.put(TodoViewmodel());
+
     var logger = Logger();
     return Scaffold(
       backgroundColor: Colors.white70,
