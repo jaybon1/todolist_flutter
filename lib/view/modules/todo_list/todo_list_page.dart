@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:todolist/viewmodel/todo_viewmodel.dart';
+import 'package:todolist/viewmodel/todo_view_model.dart';
 
-class TodoListPage extends GetView<TodoViewmodel> {
+class TodoListPage extends GetView<TodoViewModel> {
   TodoListPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final viewmodel = Get.put(TodoViewmodel());
+    final viewModel = Get.put(TodoViewModel());
     return Scaffold(
       backgroundColor: Colors.white70,
       appBar: AppBar(
@@ -35,7 +35,7 @@ class TodoListPage extends GetView<TodoViewmodel> {
                       Container(
                         width: 250,
                         child: TextField(
-                          controller: viewmodel.textEditingController,
+                          controller: viewModel.textEditingController,
                           decoration: InputDecoration(
                               contentPadding: EdgeInsets.symmetric(horizontal: 15),
                               border: OutlineInputBorder(),
@@ -43,7 +43,7 @@ class TodoListPage extends GetView<TodoViewmodel> {
                         ),
                       ),
                       GestureDetector(
-                        onTap: () => viewmodel.create(),
+                        onTap: () => viewModel.create(),
                         child: Container(
                           alignment: Alignment.center,
                           width: 70,
@@ -61,17 +61,17 @@ class TodoListPage extends GetView<TodoViewmodel> {
                   Obx(() => Expanded(
                         child: ListView.builder(
                           shrinkWrap: true,
-                          itemCount: viewmodel.todoList.length,
+                          itemCount: viewModel.todoList.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Row(children: [
                               Checkbox(
-                                value: viewmodel.todoList[index].doneYn == "Y", // Y로 나와야 할일완료로 넘어감
+                                value: viewModel.todoList[index].doneYn == "Y", // Y로 나와야 할일완료로 넘어감
                                 onChanged: (val) {
                                   // 안쓰는 val
-                                  viewmodel.done(viewmodel.todoList[index]);
+                                  viewModel.done(viewModel.todoList[index]);
                                 },
                               ),
-                              Text(viewmodel.todoList[index].content)
+                              Text(viewModel.todoList[index].content)
                             ]);
                           },
                         ),
@@ -96,23 +96,23 @@ class TodoListPage extends GetView<TodoViewmodel> {
                   Obx(() => Expanded(
                         child: ListView.builder(
                           shrinkWrap: true,
-                          itemCount: viewmodel.doneList.length,
+                          itemCount: viewModel.doneList.length,
                           itemBuilder: (BuildContext context, int index) {
                             return Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
                               Row(
                                 children: [
                                   Checkbox(
-                                    value: viewmodel.doneList[index].doneYn == "Y",
+                                    value: viewModel.doneList[index].doneYn == "Y",
                                     onChanged: (val) {
                                       // 안쓰는 val
-                                      viewmodel.done(viewmodel.doneList[index]);
+                                      viewModel.done(viewModel.doneList[index]);
                                     },
                                   ),
-                                  Text(viewmodel.doneList[index].content),
+                                  Text(viewModel.doneList[index].content),
                                 ],
                               ),
                               GestureDetector(
-                                  onTap: () => viewmodel.delete(viewmodel.doneList[index].idx),
+                                  onTap: () => viewModel.delete(viewModel.doneList[index].idx),
                                   child: Icon(Icons.close))
                             ]);
                           },

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:logger/logger.dart';
 import 'package:todolist/model/dto/common/res_dto.dart';
 import 'package:todolist/model/dto/todo/req/insert_todo.dart';
 import 'package:todolist/model/dto/todo/req/update_todo.dart';
 import 'package:todolist/model/dto/todo/res/todo.dart';
 import 'package:todolist/model/repository/todo_repository.dart';
-import 'package:todolist/utils/utils.dart';
 
-class TodoViewmodel extends GetxController {
-  static TodoViewmodel get to => Get.find();
+class TodoViewModel extends GetxController {
+  static TodoViewModel get to => Get.find();
   final TextEditingController textEditingController = TextEditingController();
 
   final TodoRepository todoRepository = Get.put(TodoRepository());
