@@ -1,5 +1,5 @@
 class Constants {
 
-  static const baseUrl = "http://220.119.34.61:8091";
+  static const baseUrl = "http://54.180.123.180:8091";
 
 }

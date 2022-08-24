@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/route_manager.dart';
-import 'package:todolist/model/repository/todo_repository.dart';
 import 'package:todolist/view/modules/todo_list/todo_list_page.dart';
 
 void main() async {
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
     WidgetsFlutterBinding.ensureInitialized();
     return GetMaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'totoList',
+        title: 'todoList',
         theme: ThemeData(
             appBarTheme: const AppBarTheme(backgroundColor: Colors.white)),
         home: TodoListPage());
