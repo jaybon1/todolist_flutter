@@ -11,9 +11,9 @@ class InsertTodo{
   InsertTodo({String content = ''})
   :this.content = content;
 
-  Map<String, dynamic> toJsonMap() => {
+  Map<String, dynamic> toMap() => {
     "content" : content
   };
 
-  String toRowJson() => jsonEncode(toJsonMap());
+  String toJson() => jsonEncode(toMap());
 }

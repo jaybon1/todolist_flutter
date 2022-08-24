@@ -20,10 +20,10 @@ class TodoRepository extends GetConnect {
 
   // 할일 등록
   Future<ResDto<Todo?>> insertTodo(InsertTodo insertTodo) async {
-    Response response = await post("/", insertTodo.toJsonMap());
+    Response response = await post("/", insertTodo.toMap());
 
     handleData(data) {
-      return Todo.fromJsonMap(data);
+      return Todo.fromMap(data);
     }
 
     return Utils.handleResDto(response, handleData: handleData);
@@ -34,10 +34,10 @@ class TodoRepository extends GetConnect {
   Future<ResDto<Todo?>> updateTodo(int idx, UpdateTodo updateTodo) async {
     final Map<String, String> query = {"idx": idx.toString()};
 
-    Response response = await put("/", updateTodo.toJsonMap(), query: query);
+    Response response = await put("/", updateTodo.toMap(), query: query);
 
     handleData(data) {
-      return Todo.fromJsonMap(data);
+      return Todo.fromMap(data);
     }
 
     return Utils.handleResDto(response, handleData: handleData);
@@ -60,7 +60,7 @@ class TodoRepository extends GetConnect {
 
     // 데이터 가공 메서드 선언
     handleData(data) {
-      return (data as List).map((e) => Todo.fromJsonMap(e)).toList();
+      return (data as List).map((e) => Todo.fromMap(e)).toList();
     }
 
     // 데이터 가공

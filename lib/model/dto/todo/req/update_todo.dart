@@ -9,9 +9,9 @@ class UpdateTodo{
   UpdateTodo({String doneYn = ''})
   :this.doneYn = doneYn;
 
-  Map<String, dynamic> toJsonMap() => {
+  Map<String, dynamic> toMap() => {
     "doneYn": doneYn
   };
 
-  String toRowJson() => jsonEncode(toJsonMap());
+  String toJson() => jsonEncode(toMap());
 }

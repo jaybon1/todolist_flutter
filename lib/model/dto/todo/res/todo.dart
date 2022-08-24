@@ -11,15 +11,15 @@ class Todo{
     required this.content,
     required this.doneYn
   });
-  
-  // json은 원래 String, 
-  factory Todo.fromRawJson(String str) => Todo.fromJsonMap(jsonDecode(str));
 
-  // factory는 싱글톤 패턴을 쓸때 사용  
-  factory Todo.fromJsonMap(Map<String, dynamic> json) => Todo(
-    idx: json["idx"],
-    content: json["content"],
-    doneYn: json["doneYn"],
+
+  factory Todo.fromMap(Map<String, dynamic> map) => Todo(
+    idx: map["idx"],
+    content: map["content"],
+    doneYn: map["doneYn"],
   );
   
+  // json은 원래 String, 
+  factory Todo.fromJson(String json) => Todo.fromMap(jsonDecode(json));
+
 }
