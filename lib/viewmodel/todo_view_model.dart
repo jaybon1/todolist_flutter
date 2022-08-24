@@ -33,8 +33,8 @@ class TodoViewModel extends GetxController {
       _doneList.value = resDto.data!.where((element) => element.doneYn == "Y").toList();
     }
     // 특별한 에러처리
-    // else if (responseDto.code == 1) {
-    //
+    // else if (resDto.code == 1) {
+    //   Get.snackbar("알림", "${resDto.message}");
     // }
   }
 
